@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="manifest/manifest.webmanifest">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Running Converter</h1>
+            <form>
+                <h2>Pace (minutes/km)</h2>
+                <div class="row mb-4">
+                    <div class="col">
+                        <input type="number" name="txtPaceMinutes" min="0" placeholder="Minutes" class="form-control"/>
+                    </div>
+                    <div class="col-auto">
+                        :
+                    </div>
+                    <div class="col">
+                        <input type="number" name="txtPaceSeconds" min="0" placeholder="Seconds" class="form-control" />
+                    </div>
+                </div>                
+                <h2>Speed (km/h)</h2>
+                <input type="number" name="txtSpeed" min="0" placeholder="km/h" class="form-control" />
+            </form>
+        </div>
+        <script>
+            const paceMinutesInput = document.getElementsByName("txtPaceMinutes")[0];
+            const paceSecondsInput = document.getElementsByName("txtPaceSeconds")[0];
+            const speedInput = document.getElementsByName("txtSpeed")[0];
+
+            paceMinutesInput.addEventListener("keyup", calculateSpeed);
+            paceMinutesInput.addEventListener("change", calculateSpeed);
+            paceSecondsInput.addEventListener("keyup", calculateSpeed);
+            paceSecondsInput.addEventListener("change", calculateSpeed);
+            speedInput.addEventListener("keyup", calculatePace);
+            speedInput.addEventListener("change", calculatePace);
+
+            function calculateSpeed() {
+                console.log('pace');
+                const minutes = Number(paceMinutesInput.value);
+                const seconds = Number(paceSecondsInput.value);
+                let speed = 0;
+                if(minutes > 0 || seconds > 0) {
+                    speed = 3600 / ((minutes * 60) + seconds);
+                }
+                speedInput.value = Math.round(speed * 10) / 10;
+            }
+
+            function calculatePace() {
+                console.log('speed');
+                const speed = Number(speedInput.value);
+                let paceSeconds = 0;
+                if(speed > 0) {
+                    paceSeconds = Math.round(3600 / speed);
+                }                
+                const paceMinutes = Math.floor(paceSeconds / 60);
+                paceSeconds = paceSeconds - (paceMinutes * 60);
+                paceMinutesInput.value = paceMinutes;
+                paceSecondsInput.value = paceSeconds;
+            }
+        </script>
+    </body>
+</html>

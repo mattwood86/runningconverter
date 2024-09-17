@@ -30,6 +30,13 @@
   ],
   "description": "App for converting between running pace and speed",
   "screenshots": [
-    
+    {
+	"src": "screenshot-mobile.png",
+	"form_factor": "narrow"
+    },
+    {
+	"src": "screenshot-desktop.png",
+	"form_factor": "wide"
+    }
   ]
 }

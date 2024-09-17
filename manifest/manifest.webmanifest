@@ -2,8 +2,8 @@
     "theme_color": "#482187",
     "background_color": "#482187",
     "display": "standalone",
-    "scope": ".",
-    "start_url": "./",
+    "scope": "https://mattwood86.github.io/runningconverter/",
+    "start_url": "https://mattwood86.github.io/runningconverter/",
     "name": "Running Converter",
     "short_name": "Running Converter",
   "icons": [

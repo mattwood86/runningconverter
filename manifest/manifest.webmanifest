@@ -32,11 +32,15 @@
   "screenshots": [
     {
 	"src": "screenshot-mobile.png",
-	"form_factor": "narrow"
+	"form_factor": "narrow",
+	"type": "image/png",
+	"sizes": "1082x2402"
     },
     {
 	"src": "screenshot-desktop.png",
-	"form_factor": "wide"
+	"form_factor": "wide",
+	"type": "image/png",
+	"sizes": "1920x641"
     }
   ]
 }
